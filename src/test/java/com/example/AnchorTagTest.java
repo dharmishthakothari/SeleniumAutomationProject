@@ -18,20 +18,21 @@ public class AnchorTagTest {
 
     private WebDriver driver;
 
-    @BeforeClass
-    public void setUp() throws Exception {
-        ChromeOptions options = new ChromeOptions();
-        // Running in headless mode to not open an active browser window during testing
-        // options.addArguments("--headless");
-        // options.addArguments("--no-sandbox");
-        // options.addArguments("--disable-dev-shm-usage");
+   @BeforeClass
+public void setUp() throws Exception {
 
-     driver = new RemoteWebDriver(
-        new URL("http://host.docker.internal:4444/wd/hub"),
-        options
-);
-        driver = new ChromeDriver(options);
-    }
+    ChromeOptions options = new ChromeOptions();
+    options.addArguments("--no-sandbox");
+    options.addArguments("--disable-dev-shm-usage");
+
+    driver = new RemoteWebDriver(
+            new URL("http://host.docker.internal:4444/wd/hub"),
+            options
+    );
+
+    driver.manage().window().maximize();
+    driver.get("https://www.guru99.com/");
+}
 
     @Test
     public void testAllAnchorTags() {
