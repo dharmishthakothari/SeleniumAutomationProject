@@ -19,7 +19,7 @@ public class AnchorTagTest {
     private WebDriver driver;
 
     @BeforeClass
-    public void setUp() {
+    public void setUp() throws Exception {
         ChromeOptions options = new ChromeOptions();
         // Running in headless mode to not open an active browser window during testing
         // options.addArguments("--headless");
