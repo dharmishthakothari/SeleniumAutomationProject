@@ -21,10 +21,14 @@ public class AnchorTagTest {
     public void setUp() {
         ChromeOptions options = new ChromeOptions();
         // Running in headless mode to not open an active browser window during testing
-        options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        options.addArguments("--disable-dev-shm-usage");
+        // options.addArguments("--headless");
+        // options.addArguments("--no-sandbox");
+        // options.addArguments("--disable-dev-shm-usage");
 
+     driver = new RemoteWebDriver(
+        new URL("http://host.docker.internal:4444/wd/hub"),
+        options
+);
         driver = new ChromeDriver(options);
     }
 
