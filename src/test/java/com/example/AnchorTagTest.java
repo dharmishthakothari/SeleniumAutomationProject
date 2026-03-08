@@ -22,6 +22,9 @@ public class AnchorTagTest {
         ChromeOptions options = new ChromeOptions();
         // Running in headless mode to not open an active browser window during testing
         options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+
         driver = new ChromeDriver(options);
     }
 
